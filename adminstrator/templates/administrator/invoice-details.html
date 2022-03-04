@@ -1,0 +1,74 @@
+{% extends 'administrator/base.html' %}
+
+
+{% block content %}
+
+
+
+
+            <!-- content @s -->
+            <div class="nk-content nk-content-fluid">
+                <div class="container-xl wide-xl">
+                    <div class="nk-content-inner">
+                        <div class="nk-content-body">
+                            <div class="nk-block-head">
+                                <div class="nk-block-between g-3">
+                                    <div class="nk-block-head-content">
+                                        <h3 class="nk-block-title page-title">Farm <strong class="text-primary small">{{farm.id}}</strong></h3>
+                                       
+                                    </div>
+                                    <div class="nk-block-head-content">
+                                        <a href="{% url 'farm-list' person.pk %}" class="btn btn-outline-light bg-white d-none d-sm-inline-flex"><em class="icon ni ni-arrow-left"></em><span>Back</span></a>
+                                        <a href="html/invoice-list.html" class="btn btn-icon btn-outline-light bg-white d-inline-flex d-sm-none"><em class="icon ni ni-arrow-left"></em></a>
+                                    </div>
+                                </div>
+                            </div><!-- .nk-block-head -->
+                            <div class="nk-block">
+                                <div class="invoice">
+                                    <div class="invoice-action">
+                                        <a class="btn btn-icon btn-lg btn-white btn-dim btn-outline-primary" href="html/invoice-print.html" target="_blank"><em class="icon ni ni-printer-fill"></em></a>
+                                    </div><!-- .invoice-actions -->
+                                    <div class="invoice-wrap">
+                                        <div class="invoice-brand text-center">
+                                            <img src="./images/logo-dark.png" srcset="./images/logo-dark2x.png 2x" alt="">
+                                        </div>
+                                        
+                                        <div class="invoice-bills">
+                                            <div class="table-responsive">
+                                                <table class="table table-striped">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="w-150px">Farm Name</th>
+                                                            <th>Monthly Interest</th>
+                                                            <th>Duration</th>
+                                                            <th>R.O.I</th>
+                                                            <th>A.P.Y</th>
+                                                            <th class="w-60">Description</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>{{farm.farm_name}}</td>
+                                                            <td>{{farm.monthly_interest}}%</td>
+                                                            <td>{{farm.terms}} Months</td>
+                                                            <td>{{farm.roi}}%</td>
+                                                            <td>{{farm.apy}}%</td>
+                                                            <td>{{farm.farm_description}}</td>
+                                                        </tr>
+                                                        
+                                                    </tbody>
+                                                   
+                                                </table>
+                                                <div class="nk-notes ff-italic fs-12px text-soft"> Invoice was created on a computer and is valid without the signature and seal. </div>
+                                            </div>
+                                        </div><!-- .invoice-bills -->
+                                    </div><!-- .invoice-wrap -->
+                                </div><!-- .invoice -->
+                            </div><!-- .nk-block -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- content @e -->
+
+{% endblock content  %}
