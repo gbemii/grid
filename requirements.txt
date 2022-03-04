@@ -19,3 +19,4 @@ soupsieve==2.1
 sqlparse==0.4.1
 urllib3==1.26.2
 whitenoise==6.0.0
+django-heroku
