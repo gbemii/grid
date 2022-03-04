@@ -129,10 +129,10 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS =[
     BASE_DIR / "static",
-    'static/assets/css/',
-    'static/assets/fonts/',
-    'static/assets/images/',
-    'static/assets/js/',
+    'static/css/',
+    'static/fonts/',
+    'static/images/',
+    'static/js/',
 ]
 
 # mimetypes.add_type("text/css","css", True)
