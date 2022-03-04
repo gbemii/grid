@@ -15,6 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+
+from django.views.static import serve
+from django.conf.urls import url 
+
 from user.views import index_view, account_view, profile_view, farm_view, investment_view, investment_detail_view, investment_form_view, setting_view, login_activity_view
 from adminstrator.views import admin_index_view, investment_list, investment_detail_view, admin_profile_view, user_list_view, user_detail_view, kyc_list_view, admin_profile_setting_view, farm_views, farm_details_views, transaction_view
 from Accounts.views import register
@@ -60,4 +64,8 @@ urlpatterns = [
     path('invest_form/<int:pk>/', investment_form_view, name='investment'),
     path('profile/<int:pk>/',profile_view, name='personal'),
     path('admin/', admin.site.urls),
+
+    url(r'^media/(?P<path>.*)$', serve,{'document_root':       settings.MEDIA_ROOT}), 
+    url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}), 
+]
 ]
