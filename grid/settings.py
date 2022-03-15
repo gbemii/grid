@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-h*#pevhge3fdc-1+so0=6t0083q(g0(#lk7w+9_7^v-c$3%58w
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', 'farmpam2.herokuapp.com', 'gridpam.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'farmpam1.herokuapp.com', 'farmpam2.herokuapp.com', 'gridpam.herokuapp.com']
 
 
 # Application definition
