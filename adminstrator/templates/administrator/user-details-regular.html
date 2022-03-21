@@ -14,16 +14,16 @@
                             <div class="nk-block-head nk-block-head-sm">
                                 <div class="nk-block-between g-3">
                                     <div class="nk-block-head-content">
-                                        <h3 class="nk-block-title page-title">Users / <strong class="text-primary small">Abu Bin Ishtiyak</strong></h3>
+                                        <h3 class="nk-block-title page-title">Users / <strong class="text-primary small">{{person.first_name}} {{person.last_name}}</strong></h3>
                                         <div class="nk-block-des text-soft">
                                             <ul class="list-inline">
-                                                <li>User ID: <span class="text-base">UD003054</span></li>
-                                                <li>Last Login: <span class="text-base">15 Feb, 2019 01:02 PM</span></li>
+                                                <li>User ID: <span class="text-base">{{person.id}}</span></li>
+                                                <li>Last Login: <span class="text-base">{{person.last_login}} PM</span></li>
                                             </ul>
                                         </div>
                                     </div>
                                     <div class="nk-block-head-content">
-                                        <a href="{% url 'user-list'%}" class="btn btn-outline-light bg-white d-none d-sm-inline-flex"><em class="icon ni ni-arrow-left"></em><span>Back</span></a>
+                                        <a href="{% url 'user_list'%}" class="btn btn-outline-light bg-white d-none d-sm-inline-flex"><em class="icon ni ni-arrow-left"></em><span>Back</span></a>
                                         <a href="html/user-list-regular.html" class="btn btn-icon btn-outline-light bg-white d-inline-flex d-sm-none"><em class="icon ni ni-arrow-left"></em></a>
                                     </div>
                                 </div>
@@ -68,31 +68,55 @@
                                                         <div class="profile-ud-item">
                                                             <div class="profile-ud wider">
                                                                 <span class="profile-ud-label">Full Name</span>
-                                                                <span class="profile-ud-value">{{user.firstname}} {{user.surname}}</span>
+                                                                <span class="profile-ud-value">{{person.first_name}} {{person.last_name}}</span>
                                                             </div>
                                                         </div>
                                                         <div class="profile-ud-item">
                                                             <div class="profile-ud wider">
                                                                 <span class="profile-ud-label">Date of Birth</span>
-                                                                <span class="profile-ud-value">{{user.date_of_birth}}</span>
+                                                                <span class="profile-ud-value">{{person.date_of_birth}}</span>
                                                             </div>
                                                         </div>
                                                         <div class="profile-ud-item">
                                                             <div class="profile-ud wider">
                                                                 <span class="profile-ud-label">Surname</span>
-                                                                <span class="profile-ud-value">{{user.surname}}</span>
+                                                                <span class="profile-ud-value">{{person.last_name}}</span>
                                                             </div>
                                                         </div>
                                                         <div class="profile-ud-item">
                                                             <div class="profile-ud wider">
                                                                 <span class="profile-ud-label">Mobile Number</span>
-                                                                <span class="profile-ud-value">{{user.firstname}}</span>
+                                                                <span class="profile-ud-value">{{person.first_name}}</span>
                                                             </div>
                                                         </div>
                                                         <div class="profile-ud-item">
                                                             <div class="profile-ud wider">
                                                                 <span class="profile-ud-label">Email Address</span>
-                                                                <span class="profile-ud-value">{{user.email}}.com</span>
+                                                                <span class="profile-ud-value">{{person.email}}</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="profile-ud-item">
+                                                            <div class="profile-ud wider">
+                                                                <span class="profile-ud-label">User Access</span>
+                                                                <span class="profile-ud-value">{{person.is_active}}</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="profile-ud-item">
+                                                            <div class="profile-ud wider">
+                                                                <span class="profile-ud-label">User Status</span>
+                                                                <span class="profile-ud-value">{{person.is_client}}</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="profile-ud-item">
+                                                            <div class="profile-ud wider">
+                                                                <span class="profile-ud-label">admin Status</span>
+                                                                <span class="profile-ud-value">{{person.is_admin}}</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="profile-ud-item">
+                                                            <div class="profile-ud wider">
+                                                                <span class="profile-ud-label">superuser Status</span>
+                                                                <span class="profile-ud-value">{{person.is_superuser}}</span>
                                                             </div>
                                                         </div>
                                                     </div><!-- .profile-ud-list -->
@@ -193,6 +217,14 @@
                                     </div><!-- .card-aside-wrap -->
                                 </div><!-- .card -->
                             </div><!-- .nk-block -->
+                            <div class="nk-block">
+                                
+                                <div class="nk-block-head-content">
+                                    <a href="{% url 'Update_user' person.id %}" class="btn btn-outline-light bg-white d-none d-sm-inline-flex"><em class="icon ni ni-arrow-right"></em><span>Update</span></a>
+                                        <!-- <a href="html/invoice-list.html" class="btn btn-icon btn-outline-light bg-white d-inline-flex d-sm-none"><em class="icon ni ni-arrow-left"></em></a> -->
+                                </div>
+                            </div><!-- .nk-block -->
+
                         </div>
                     </div>
                 </div>

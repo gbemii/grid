@@ -1,0 +1,59 @@
+{% extends "user/base.html"%}
+{% block content %}
+
+            <!-- content @s -->
+            <div class="nk-content nk-content-lg nk-content-fluid">
+                <div class="container-xl wide-lg">
+                    <div class="nk-content-inner">
+                        <div class="nk-content-body">
+                            <div class="nk-block-head nk-block-head-lg">
+                                <div class="nk-block-head-content">
+                                    <div class="nk-block-head-sub"><a href="{% url 'user_index' person.pk %}" class="back-to"><em class="icon ni ni-arrow-left"></em><span>Back to plan</span></a></div>
+                                    <div class="nk-block-head-content">
+                                        <h2 class="nk-block-title fw-normal">Your Available balance is</h2>
+                                    </div>
+                                </div>
+                            </div><!-- nk-block-head -->
+                            <p>Deposit for Invest Panel</p>
+
+                            <form action="{% url 'deposit' person.pk %}" method="POST">
+                                {% csrf_token %}
+                                 
+                                <div class="nk-block-head">
+                                    <div class="nk-block-head-content">
+                                        <h5 class="nk-block-title">New Farm</h5>
+                                        <div class="nk-block-des">
+                                            <p>Add information and add new farm.</p>
+                                        </div>
+                                    </div>
+                                </div><!-- .nk-block-head -->
+                                <div class="nk-block">
+                                    <!-- <div class="row g-3"> -->
+                                        {{form.as_ul}}
+                                        <div class="col-12">
+                                            <div class="upload-zone small bg-lighter my-2">
+                                                <div class="dz-message">
+                                                    <span class="dz-message-text">Drag and drop file</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                           <!--  <button class="btn btn-primary"><em class="icon ni ni-plus"></em><span>Cancel</span></button> -->
+                                            <button class="btn btn-primary" type="submit"></em><span>Deposit</span></button>
+                                        </div>
+                                    <!-- </div> -->
+                                </div><!-- .nk-block -->
+                           
+
+
+                            </form>
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- content @e -->
+           
+{% endblock content%}

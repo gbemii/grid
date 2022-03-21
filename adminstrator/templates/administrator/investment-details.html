@@ -16,7 +16,23 @@
                                         <div class="nk-block-head-content">
                                             <h2 class="nk-block-title fw-normal">{{scheme.name_of_scheme}} - Monthly X% for {{scheme.term_of_scheme}} Months</h2>
                                             <div class="nk-block-des">
-                                                <p>{{scheme.user_id}} <span class="badge badge-outline badge-primary">Running</span></p>
+                                                 <p>{{scheme.user_id}} <span class="badge badge-outline badge-primary">{{scheme.investment_status}}</span></p>
+                                                <!-- <form method = 'POST'>
+                                                    {% csrf_token%}
+                                                    {{form.investment_status}}
+                                                    <button class="btn" type="submit" value=" {{scheme.investment_status}}"> submit</button>
+                                                    
+                                                    
+                                                </form> -->
+                                               <!--  <form method ='POST'>
+                                                    {% csrf_token%}
+                                                    {{form.investment_status}}
+                                            
+                                                    <button class="btn" type="submit"> submit</button>
+                                                </form> -->
+                                                <a href="{% url 'Update_investment' scheme.pk  %}">update</a>
+                                               
+                                                    
                                             </div>
                                         </div>
                                         <div class="nk-block-head-content">
@@ -124,39 +140,7 @@
                                 </div>
                             </div><!-- .nk-block -->
                             
-                            <div class="nk-block nk-block-lg">
-                                <div class="nk-block-head">
-                                    <h5 class="nk-block-title">Transactions</h5>
-                                </div>
-                                <div class="card card-bordered">
-                                    <table class="table table-iv-tnx">
-                                        <thead class="thead-light">
-                                            <tr>
-                                                <th class="tb-col-type"><span class="overline-title">Type</span></th>
-                                                <th class="tb-col-date"><span class="overline-title">Date</span></th>
-                                                <th class="tb-col-time tb-col-end"><span class="overline-title">Amount</span></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td class="tb-col-type"><span class="sub-text">Investment</span></td>
-                                                <td class="tb-col-date"><span class="sub-text">04 Nov, 2018</span></td>
-                                                <td class="tb-col-time tb-col-end"><span class="lead-text text-danger">- 2,500.00</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="tb-col-type"><span class="sub-text">Profit - 4.76%</span></td>
-                                                <td class="tb-col-date"><span class="sub-text">05 Nov, 2018</span></td>
-                                                <td class="tb-col-time tb-col-end"><span class="lead-text">+ 119.10</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="tb-col-type"><span class="sub-text">Profit - 4.76%</span></td>
-                                                <td class="tb-col-date"><span class="sub-text">06 Nov, 2018</span></td>
-                                                <td class="tb-col-time tb-col-end"><span class="lead-text">+ 119.10</span></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div><!-- .card -->
-                            </div><!-- .nk-block -->
+                          
                         </div>
                     </div>
                 </div>

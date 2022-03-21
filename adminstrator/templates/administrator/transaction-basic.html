@@ -141,8 +141,8 @@
                                                                 <a class="text-soft dropdown-toggle btn btn-icon btn-trigger" data-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
                                                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-xs">
                                                                     <ul class="link-list-plain">
-                                                                        <li><a href="#">View</a></li>
-                                                                        <li><a href="#">Edit</a></li>
+                                                                        <li><a href="{% url 'transdetails' t.pk %}">View</a></li>
+                                                                        <li><a href="{% url 'Update_transaction' t.pk %}">Edit</a></li>
                                                                         <li><a href="#">Remove</a></li>
                                                                     </ul>
                                                                 </div>
@@ -156,7 +156,7 @@
                                                 </tbody>
                                             </table>
                                         </div><!-- .card-inner -->
-                                        <div class="card-inner">
+                                       <!--  <div class="card-inner">
                                             <ul class="pagination justify-content-center justify-content-md-start">
                                                 <li class="page-item"><a class="page-link" href="#">Prev</a></li>
                                                 <li class="page-item"><a class="page-link" href="#">1</a></li>
@@ -165,8 +165,9 @@
                                                 <li class="page-item"><a class="page-link" href="#">6</a></li>
                                                 <li class="page-item"><a class="page-link" href="#">7</a></li>
                                                 <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                                            </ul><!-- .pagination -->
-                                        </div><!-- .card-inner -->
+                                            </ul> 
+                                        </div> -->
+                                        <!-- .card-inner -->
                                     </div><!-- .card-inner-group -->
                                 </div><!-- .card -->
                             </div><!-- .nk-block -->

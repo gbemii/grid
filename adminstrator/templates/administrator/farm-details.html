@@ -18,7 +18,7 @@
                                        
                                     </div>
                                     <div class="nk-block-head-content">
-                                        <a href="{% url 'farm-list' person.pk %}" class="btn btn-outline-light bg-white d-none d-sm-inline-flex"><em class="icon ni ni-arrow-left"></em><span>Back</span></a>
+                                        <a href="{% url 'farm-list' %}" class="btn btn-outline-light bg-white d-none d-sm-inline-flex"><em class="icon ni ni-arrow-left"></em><span>Back</span></a>
                                         <a href="html/invoice-list.html" class="btn btn-icon btn-outline-light bg-white d-inline-flex d-sm-none"><em class="icon ni ni-arrow-left"></em></a>
                                     </div>
                                 </div>
@@ -65,6 +65,16 @@
                                     </div><!-- .invoice-wrap -->
                                 </div><!-- .invoice -->
                             </div><!-- .nk-block -->
+                            <div class="nk-block">
+                                
+                               <div class="nk-block-head-content">
+                                        <a href="{% url 'Update_farm' farm.farm_id %}" class="btn btn-outline-light bg-white d-none d-sm-inline-flex"><em class="icon ni ni-arrow-right"></em><span>Update</span></a>
+                                        <a href="html/invoice-list.html" class="btn btn-icon btn-outline-light bg-white d-inline-flex d-sm-none"><em class="icon ni ni-arrow-left"></em></a>
+                                    </div>
+                            </div><!-- .nk-block -->
+
+
+                            
                         </div>
                     </div>
                 </div>

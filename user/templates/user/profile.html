@@ -28,7 +28,7 @@
                             <a href="#" class="nk-nav-toggle nk-quick-nav-icon" data-target="headerNav"><em class="icon ni ni-menu"></em></a>
                         </div>
                         <div class="nk-header-brand">
-                            <a href="html/index.html" class="logo-link">
+                            <a href="{% url 'clientpage'%}" class="logo-link">
                                 <img class="logo-light logo-img" src="{% static './images/logo.png' %}" srcset="{% static './images/logo2x.png' %} 2x" alt="logo">
                                 <img class="logo-dark logo-img" src="{% static './images/logo-dark.png' %}" srcset="{% static './images/logo-dark2x.png' %} 2x" alt="logo-dark">
                                 <span class="nio-version">Invest</span>
@@ -50,12 +50,12 @@
                             <!-- Menu -->
                             <ul class="nk-menu nk-menu-main">
                                 <li class="nk-menu-item">
-                                    <a href="{% url 'user_index' person.pk %}" class="nk-menu-link">
+                                    <a href="{% url 'clientpage'%}" class="nk-menu-link">
                                         <span class="nk-menu-text">Overview</span>
                                     </a>
                                 </li>
                                 <li class="nk-menu-item">
-                                    <a href="{% url 'investment' person.pk %}" class="nk-menu-link">
+                                    <a href="{% url 'investments' %}" class="nk-menu-link">
                                         <span class="nk-menu-text">MY Plan</span>
                                     </a>
                                 </li>
@@ -65,7 +65,7 @@
                                     </a>
                                 </li>
                                 <li class="nk-menu-item">
-                                    <a href="{% url 'personal' person.pk %}" class="nk-menu-link">
+                                    <a href="{% url 'personal'%}" class="nk-menu-link">
                                         <span class="nk-menu-text">Profile</span>
                                     </a>
                                 </li>
@@ -188,7 +188,7 @@
                                         </div>
                                     </div>
                                 </li><!-- .dropdown -->
-                                <li class="hide-mb-sm"><a href="#" class="nk-quick-nav-icon"><em class="icon ni ni-signout"></em></a></li>
+                                <li class="hide-mb-sm"><a href="{% url 'logout' %}" class="nk-quick-nav-icon"><em class="icon ni ni-signout"></em></a></li>
                                 <li class="dropdown user-dropdown order-sm-first">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                         <div class="user-toggle">
@@ -197,7 +197,7 @@
                                             </div>
                                             <div class="user-info d-none d-xl-block">
                                                 <div class="user-status user-status-unverified">Unverified</div>
-                                                <div class="user-name dropdown-indicator"> {{person.firstname}} {{person.surname}}</div>
+                                                <div class="user-name dropdown-indicator"> {{person.username}}</div>
                                             </div>
                                         </div>
                                     </a>
@@ -208,11 +208,11 @@
                                                     <span>AB</span>
                                                 </div>
                                                 <div class="user-info">
-                                                    <span class="lead-text">{{person.firstname}} {{person.surname}}</span>
+                                                    <span class="lead-text">{{person.first_name}} {{person.last_name}}</span>
                                                     <span class="sub-text">{{person.email}} </span>
                                                 </div>
                                                 <div class="user-action">
-                                                    <a class="btn btn-icon mr-n2" href="{% url 'profile_setting' person.pk %}"><em class="icon ni ni-setting"></em></a>
+                                                    <a class="btn btn-icon mr-n2" href="{% url 'profile_setting'  %}"><em class="icon ni ni-setting"></em></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -225,14 +225,14 @@
                                         <div class="dropdown-inner">
                                             <ul class="link-list">
                                                 <li><a href="profile/1"><em class="icon ni ni-user-alt"></em><span>View Profile</span></a></li>
-                                                <li><a href="{% url 'profile_setting' person.pk %}"><em class="icon ni ni-setting-alt"></em><span>Account Setting</span></a></li>
-                                                <li><a href="{% url 'login_activity' person.pk %}"><em class="icon ni ni-activity-alt"></em><span>Login Activity</span></a></li>
+                                                <li><a href="{% url 'profile_setting'  %}"><em class="icon ni ni-setting-alt"></em><span>Account Setting</span></a></li>
+                                                <li><a href="{% url 'login_activity'  %}"><em class="icon ni ni-activity-alt"></em><span>Login Activity</span></a></li>
                                                 <li><a class="dark-switch" href="#"><em class="icon ni ni-moon"></em><span>Dark Mode</span></a></li>
                                             </ul>
                                         </div>
                                         <div class="dropdown-inner">
                                             <ul class="link-list">
-                                                <li><a href="#"><em class="icon ni ni-signout"></em><span>Sign out</span></a></li>
+                                                <li><a href="{% url 'logout' %}"><em class="icon ni ni-signout"></em><span>Sign out</span></a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -260,10 +260,10 @@
                             </div>
                             <ul class="nk-nav nav nav-tabs">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'personal' person.pk %}">Personal</a>
+                                    <a class="nav-link" href="{% url 'personal'  %}">Personal</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'profile_setting' person.pk %}">Security<span class="d-none s-sm-inline"> Setting</span></a>
+                                    <a class="nav-link" href="{% url 'profile_setting' %}">Security<span class="d-none s-sm-inline"> Setting</span></a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="html/invest/profile-notify.html">Notifications</a>
@@ -287,7 +287,7 @@
                                             <div class="data-col">
                                                 <span class="data-label">Full Name</span>
                                                 <span class="data-value">
-                                                  {{ person.firstname }} {{ person.surname }}
+                                                  {{ person.first_name }} {{ person.last_name}}
 
                                             </span>
                                             </div>
@@ -385,6 +385,7 @@
         <!-- wrap @e -->
     </div>
     <!-- app-root @e -->
+    
     <!-- @@ Profile Edit Modal @e -->
     <div class="modal fade" role="dialog" id="profile-edit">
         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">

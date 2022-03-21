@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-h*#pevhge3fdc-1+so0=6t0083q(g0(#lk7w+9_7^v-c$3%58w'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1','gridpam.herokuapp.com']
 
@@ -58,6 +58,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'grid.urls'
+
+LOGIN_URL='/login/'
 
 TEMPLATES = [
     {
@@ -136,12 +138,13 @@ STATICFILES_DIRS =[
     'static/js/',
 ]
 
-# mimetypes.add_type("text/css","css", True)
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/dev/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+AUTH_USER_MODEL = 'Accounts.User'
 
 django_heroku.settings(locals())

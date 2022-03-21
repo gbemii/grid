@@ -10,6 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/dev/ref/settings/
 """
 
+import django_heroku
+
 from pathlib import Path
 # import mimetypes
 
@@ -123,7 +125,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/dev/howto/static-files/
-
+STATIC_ROOT= [BASE_DIR/ "staticfiles" ]
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS =[
@@ -133,10 +135,16 @@ STATICFILES_DIRS =[
     'static/assets/images/',
     'static/assets/js/',
 ]
+# MEDIA_ROOT= [BASE_DIR/ "media" ]
+# MEDIA_URL = '/media/'
 
 # mimetypes.add_type("text/css","css", True)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/dev/ref/settings/#default-auto-field
 
+AUTH_USER_MODEL= 'Accounts.User'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Activate django heroku
+django_heroku.settings(locals())

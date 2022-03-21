@@ -22,6 +22,7 @@
                                         <img class="logo-dark logo-img logo-img-lg" src="./images/logo-dark.png" srcset="./images/logo-dark2x.png 2x" alt="logo-dark">
                                     </a>
                                 </div>
+                                 {% if not request.user.is_authenticated %}
                                 <div class="nk-block-head">
                                     <div class="nk-block-head-content">
                                         <h5 class="nk-block-title">Register</h5>
@@ -30,10 +31,12 @@
                                         </div>
                                     </div>
                                 </div><!-- .nk-block-head -->
-                                <form action="{% url 'register'%}" method="POST">
+                                <form  method="POST">
                                     {% csrf_token %}
                                     <div class="form-group">
-                                        <label class="form-label" for="name">Name</label>
+
+                                        {{form.as_p}}
+                                       <!--  <label class="form-label" for="name">Name</label>
                                         <div class="form-control-wrap">
                                             <input type="text" class="form-control form-control-lg" id="name" placeholder="Enter your name">
                                         </div>
@@ -59,12 +62,13 @@
                                             <input type="checkbox" class="custom-control-input" id="checkbox">
                                             <label class="custom-control-label" for="checkbox">I agree to Dashlite <a tabindex="-1" href="#">Privacy Policy</a> &amp; <a tabindex="-1" href="#"> Terms.</a></label>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <div class="form-group">
-                                        <button class="btn btn-lg btn-primary btn-block">Register</button>
+                                        <button type="submit" class="btn btn-lg btn-primary btn-block" >Register</button>
                                     </div>
                                 </form><!-- form -->
-                                <div class="form-note-s2 pt-4"> Already have an account ? <a href="html/pages/auths/auth-login.html"><strong>Sign in instead</strong></a>
+                                
+                                <div class="form-note-s2 pt-4"> Already have an account ? <a href="/login/"><strong>Sign in instead</strong></a>
                                 </div>
                                 <div class="text-center pt-4 pb-3">
                                     <h6 class="overline-title overline-title-sap"><span>OR</span></h6>
@@ -73,6 +77,9 @@
                                     <li class="nav-item"><a class="nav-link" href="#">Facebook</a></li>
                                     <li class="nav-item"><a class="nav-link" href="#">Google</a></li>
                                 </ul>
+                                {% else %}
+                                <p> You are already logged in. Would you like to <a href="/logout/">logout</a></p>
+                                {% endif %}
                             </div><!-- .nk-block -->
                             <div class="nk-block nk-auth-footer">
                                 <div class="nk-block-between">

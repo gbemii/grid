@@ -227,7 +227,7 @@
                                                         </div>
                                                     </div>
                                                 </div><!-- .nk-tb-item -->
-                                                {% for u in user %}
+                                                {% for u in person %}
                                                 <div class="nk-tb-item">
                                                     <div class="nk-tb-col nk-tb-col-check">
                                                         <div class="custom-control custom-control-sm custom-checkbox notext">
@@ -242,7 +242,7 @@
                                                                     <span>AB</span>
                                                                 </div>
                                                                 <div class="user-info">
-                                                                    <span class="tb-lead">{{u.firstname}} {{u.surname}}<span class="dot dot-success d-md-none ml-1"></span></span>
+                                                                    <span class="tb-lead">{{u.first_name}} {{u.last_name}}<span class="dot dot-success d-md-none ml-1"></span></span>
                                                                     <span>{{u.email}}</span>
                                                                 </div>
                                                             </div>
@@ -296,7 +296,7 @@
                                                                     <div class="dropdown-menu dropdown-menu-right">
                                                                         <ul class="link-list-opt no-bdr">
                                                                             
-                                                                            <li><a href="{% url 'userdetails' person.pk %}"><em class="icon ni ni-eye"></em><span>View Details</span></a></li>
+                                                                            <li><a href="{% url 'userdetails' u.pk %}"><em class="icon ni ni-eye"></em><span>View Details</span></a></li>
                                                                             <li><a href="#"><em class="icon ni ni-repeat"></em><span>Transaction</span></a></li>
                                                                             <li class="divider"></li>
                                                                             <li><a href="#"><em class="icon ni ni-shield-star"></em><span>Reset Pass</span></a></li>

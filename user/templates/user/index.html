@@ -11,9 +11,9 @@
                                         <div class="nk-block-head-sub"><span>Welcome!</span></div>
                                         <div class="align-center flex-wrap pb-2 gx-4 gy-3">
                                             <div>
-                                                <h2 class="nk-block-title fw-normal">{{person.firstname}} {{person.surname}}</h2>
+                                                <h2 class="nk-block-title fw-normal">{{person.first_name}} {{person.last_name}}</h2>
                                             </div>
-                                            <div><a href="html/invest/schemes.html" class="btn btn-white btn-light">My Plans <em class="icon ni ni-arrow-long-right ml-2"></em></a></div>
+                                            <div><a href="{% url 'investments'  %}" class="btn btn-white btn-light">My Plans <em class="icon ni ni-arrow-long-right ml-2"></em></a></div>
                                         </div>
                                         <div class="nk-block-des">
                                             <p>At a glance summary of your investment account. Have fun!</p>
@@ -27,7 +27,7 @@
                                                     <div class="nk-iv-wg1">
                                                         <div class="nk-iv-wg1-sub sub-text">My Active Plans</div>
                                                         <h6 class="nk-iv-wg1-info title">{{i.name_of_scheme}} - {{i.roi}}% for {{i.term_of_scheme}} Months</h6>
-                                                        <a href="#" class="nk-iv-wg1-link link link-light"><em class="icon ni ni-trend-up"></em> <span>Check Details</span></a>
+                                                        <a href="{% url 'investments_detail' i.pk  %}" class="nk-iv-wg1-link link link-light"><em class="icon ni ni-trend-up"></em> <span>Check Details</span></a>
                                                         <div class="nk-iv-wg1-progress">
                                                             <div class="progress-bar bg-primary" data-progress="80"></div>
                                                         </div>
@@ -41,7 +41,7 @@
                                     </div><!-- .nk-block-head-content -->
                                 </div><!-- .nk-block-between -->
                             </div><!-- .nk-block-head -->
-                            <div class="nk-block">
+                           <!--  <div class="nk-block">
                                 <div class="nk-news card card-bordered">
                                     <div class="card-inner">
                                         <div class="nk-news-list">
@@ -57,7 +57,7 @@
                                         </div>
                                     </div>
                                 </div><!-- .card -->
-                            </div><!-- .nk-block -->
+                            </div><!-- .nk-block --> 
                             <div class="nk-block">
                                 <div class="row gy-gs">
                                     <div class="col-md-6 col-lg-4">
@@ -134,8 +134,8 @@
                                                         </ul>
                                                     </div>
                                                     <div class="nk-iv-wg2-cta">
-                                                        <a href="#" class="btn btn-primary btn-lg btn-block">Withdraw Funds</a>
-                                                        <a href="#" class="btn btn-trans btn-block">Deposit Funds</a>
+                                                        <a href="{% url 'withdrawal' %}" class="btn btn-primary btn-lg btn-block">Withdraw Funds</a>
+                                                        <a href="{% url 'deposit' %}" class="btn btn-trans btn-block">Deposit Funds</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -185,11 +185,11 @@
                                                         <h6 class="title">My Investment</h6>
                                                     </div>
                                                     <div class="nk-iv-wg2-text">
-                                                        <div class="nk-iv-wg2-amount ui-v2">319 <!-- no of records on the database --><span class="sub">03</span> Active</div>
+                                                        <div class="nk-iv-wg2-amount ui-v2">{{scheme_no}} <!-- no of records on the database --> Active</div>
                                                         <ul class="nk-iv-wg2-list">
                                                             {% for i in scheme %}
                                                             <li>
-                                                                <span class="item-label"><a href="#">Silver{{i.name_of_scheme}}</a> <small>- 4.76% for {{i.term_of_scheme}} Days</small></span>
+                                                                <span class="item-label"><a href="{% url 'investments_detail' i.pk  %}">{{i.name_of_scheme}}</a> <small>- 4.76% for {{i.term_of_scheme}} Days</small></span>
                                                                 <span class="item-value">{{i.profit_earned}}</span>
                                                             </li>
                                                             {% endfor %}
@@ -197,8 +197,9 @@
                                                         </ul>
                                                     </div>
                                                     <div class="nk-iv-wg2-cta">
-                                                        <a href="#" class="btn btn-light btn-lg btn-block">See all Investment</a>
-                                                        <div class="cta-extra">Check out <a href="#" class="link link-dark">Analytic Report</a></div>
+                                                        <a href="{% url 'investments' %}" class="btn btn-light btn-lg btn-block">See all Investment</a>
+                                                         <div class="cta-extra"> </div>
+                                                       <!--  <div class="cta-extra">Check out <a href="#" class="link link-dark">Analytic Report</a></div> -->
                                                     </div>
                                                 </div>
                                             </div>

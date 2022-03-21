@@ -40,18 +40,18 @@ class Admin_info(models.Model):
 
 
 class Farm(models.Model):
-	farm_id =models.CharField(max_length=225)
+	farm_id =models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
 	farm_name= models.CharField(max_length=222)
-	monthly_interest= models.CharField(max_length=222)
-	terms= models.CharField(max_length=222)
-	roi= models.CharField(max_length=222)
-	apy= models.CharField(max_length=222)
+	monthly_interest= models.IntegerField()
+	terms= models.IntegerField()
+	roi= models.IntegerField()
+	apy= models.IntegerField()
 	farm_description= models.CharField(max_length=222)
 
 
 
 	def __str__(self):
-		return self.farm_id
+		return self.farm_name
 
 # class Transactions(models.Model):
 # 	transaction_id =models.CharField(max_length=225)

@@ -30,7 +30,7 @@
                             <a href="#" class="nk-nav-toggle nk-quick-nav-icon" data-target="headerNav"><em class="icon ni ni-menu"></em></a>
                         </div>
                         <div class="nk-header-brand">
-                            <a href="{%url 'index' person.pk %}" class="logo-link">
+                            <a href="{%url 'adminpage' %}" class="logo-link">
                                 <img class="logo-light logo-img" src="{% static './images/logo.png' %}" srcset="{% static './images/logo2x.png' %} 2x" alt="logo">
                                 <img class="logo-dark logo-img" src="{% static './images/logo-dark.png' %}" srcset="{% static './images/logo-dark2x.png' %} 2x" alt="logo-dark">
                             </a>
@@ -86,7 +86,7 @@
                                             </a>
                                             <ul class="nk-menu-sub">
                                                 <li class="nk-menu-item">
-                                                    <a href="{% url 'user-list'%}" class="nk-menu-link"><span class="nk-menu-text">User List - Regular</span></a>
+                                                    <a href="{% url 'user_list'%}" class="nk-menu-link"><span class="nk-menu-text">User List - Regular</span></a>
                                                 </li>
                                                 
                                                 <li class="nk-menu-item">
@@ -142,7 +142,7 @@
                                             </a>
                                             <ul class="nk-menu-sub">
                                                 <li class="nk-menu-item">
-                                                    <a href="{% url 'farm-list' person.pk %}" class="nk-menu-link"><span class="nk-menu-text">Farm List</span></a>
+                                                    <a href="{% url 'farm-list'%}" class="nk-menu-link"><span class="nk-menu-text">Farm List</span></a>
                                                 </li>
                                                 
                                             </ul><!-- .nk-menu-sub -->
@@ -259,7 +259,7 @@
                                             </div>
                                             <div class="user-info d-none d-xl-block">
                                                 <div class="user-status">Administrator</div>
-                                                <div class="user-name dropdown-indicator">{{person.firstname}} {{person.surname}}</div>
+                                                <div class="user-name dropdown-indicator">{{user.username}}</div>
                                             </div>
                                         </div>
                                     </a>
@@ -270,11 +270,11 @@
                                                     <span>AB</span>
                                                 </div>
                                                 <div class="user-info">
-                                                    <span class="lead-text">{{person.firstname}} {{person.surname}}</span>
-                                                    <span class="sub-text">{{person.email}}</span>
+                                                    <span class="lead-text">{{user.first_name}} {{user.last_name}}</span>
+                                                    <span class="sub-text">{{user.email}}</span>
                                                 </div>
                                                 <div class="user-action">
-                                                    <a class="btn btn-icon mr-n2" href="{% url 'admin-profile_setting' person.id%}"><em class="icon ni ni-setting"></em></a>
+                                                    <a class="btn btn-icon mr-n2" href="{% url 'admin-profile_setting' %}"><em class="icon ni ni-setting"></em></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -286,15 +286,15 @@
                                         </div> -->
                                         <div class="dropdown-inner">
                                             <ul class="link-list">
-                                                <li><a href="{% url 'admin-profile' person.id%}"><em class="icon ni ni-user-alt"></em><span>View Profile</span></a></li>
-                                                <li><a href="{% url 'admin-profile_setting' person.id%}"><em class="icon ni ni-setting-alt"></em><span>Account Setting</span></a></li>
+                                                <li><a href="{% url 'admin-profile'}"><em class="icon ni ni-user-alt"></em><span>View Profile</span></a></li>
+                                                <li><a href="{% url 'admin-profile_setting'%}"><em class="icon ni ni-setting-alt"></em><span>Account Setting</span></a></li>
                                                 <li><a href="html/user-profile-activity.html"><em class="icon ni ni-activity-alt"></em><span>Login Activity</span></a></li>
                                                 <li><a class="dark-mode-switch" href="#"><em class="icon ni ni-moon"></em><span>Dark Mode</span></a></li>
                                             </ul>
                                         </div>
                                         <div class="dropdown-inner">
                                             <ul class="link-list">
-                                                <li><a href="#"><em class="icon ni ni-signout"></em><span>Sign out</span></a></li>
+                                                <li><a href="{% url 'logout' %}"><em class="icon ni ni-signout"></em><span>Sign out</span></a></li>
                                             </ul>
                                         </div>
                                     </div>
